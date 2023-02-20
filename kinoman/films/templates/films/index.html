@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% load film_card %}
+{% block page_title %}
+    {{ block.super }} - Главная
+{% endblock page_title %}
+{% block content %}
+    {% show_card film %}
+{% endblock %}

@@ -1,0 +1,15 @@
+body,
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+.logo {
+  font-family: "Roboto Slab", serif;
+  margin-right: 5px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+
