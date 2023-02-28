@@ -1,9 +1,17 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% load film_card %}
 {% block page_title %}
-    {{ block.super }} - Главная
-{% endblock page_title %}
+  {{ block.super }} - Главная
+{% endblock %}
 {% block content %}
-    {% show_card film %}
+{% for chunk in films_chunked %}
+    <div class="columns is-centered">
+        {% for film in chunk %}
+            <div class="column is-one-fifth">
+                {% show_card film %}
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
 {% endblock %}
