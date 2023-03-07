@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // REGISTER MODAL
     const $modal = document.getElementById("modal-login")
+    if ($modal === null) location.hash = ""
     const $register_btn_tab = document.getElementById("go-registration")
     const $login_btn_tab = document.getElementById("go-login")
     const $login_page = document.getElementById("page-login")
