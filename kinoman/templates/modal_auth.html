@@ -1,0 +1,67 @@
+{% load auth_form %}
+{% get_registration_form as registration_form %}
+{% get_login_form as login_form %}
+<div id="modal-login" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <div class="tabs is-centered is-boxed">
+                <ul>
+                    <li class="is-active" id="go-registration">
+                        <a href="#register">
+                            <span class="icon is-small mdi mdi-account-plus"></span>
+                            <span>Регистрация</span>
+                        </a>
+                    </li>
+                    <li id="go-login">
+                        <a href="#login">
+                            <span class="icon is-small mdi mdi-account-key"></span>
+                            <span>Вход</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="registration" id="page-register">
+                <p class="title">Новый пользователь</p>
+                <hr/>
+                <form method="POST" action="{% url 'register' %}?redirect={{ request.path }}">
+                    {% csrf_token %}
+                    {% for message in messages %}
+                        {% if 'auth' in message.extra_tags %}
+                            <div class="notification is-danger">
+                             {{ message }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    {% for field in registration_form %}
+                        <div class="block">{{ field }}</div>
+                    {% endfor %}
+                    <button class="button block" type="submit">Регистрация</button>
+                </form>
+            </div>
+            <div class="login" id="page-login">
+                <p class="title">Вход</p>
+                <hr/>
+                {% for message in messages %}
+                    {% if 'login' in message.extra_tags %}
+                        <div class="notification is-danger">
+                         {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <form action="{% url 'login' %}?redirect={{ request.path }}" method="POST">
+                    {% csrf_token %}
+                    {% for field in login_form %}
+                        <div class="block">{{ field }}</div>
+                    {% endfor %}
+                    <button class="button block" type="submit">Вход</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button
+            class="modal-close is-large"
+            id="modal-close"
+            aria-label="close"
+    ></button>
+</div>

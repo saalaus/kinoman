@@ -1,136 +1,44 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{% block page_title %}
-            Kinoman
-        {% endblock page_title %}</title>
-        <!-- fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto+Slab:wght@700&display=swap"
-              rel="stylesheet"/>
-        <!-- Bulma -->
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
-        <!-- icons -->
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css"/>
-        <!-- styles -->
-        <link rel="stylesheet" href="{% static 'styles.css' %}" />
-    </head>
-    <body>
-        <!-- MODAL -->
-        <div id="modal-login" class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                <div class="box">
-                    <div class="tabs is-centered is-boxed">
-                        <ul>
-                            <li class="is-active" id="go-registration">
-                                <a href="#register">
-                                    <span class="icon is-small mdi mdi-account-plus"></span>
-                                    <span>Регистрация</span>
-                                </a>
-                            </li>
-                            <li id="go-login">
-                                <a href="#login">
-                                    <span class="icon is-small mdi mdi-account-key"></span>
-                                    <span>Вход</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="registration" id="page-register">
-                        <p class="title">Новый пользователь</p>
-                        <hr />
-                        <div class="block">
-                            <input class="input" type="text" placeholder="Email" />
-                        </div>
-                        <div class="block">
-                            <input class="input" type="password" placeholder="Пароль" />
-                        </div>
-                        <div class="block">
-                            <input class="input" type="password" placeholder="Повторите пароль" />
-                        </div>
-                        <button class="button block">Регистрация</button>
-                    </div>
-                    <div class="login" id="page-login">
-                        <p class="title">Вход</p>
-                        <hr />
-                        <div class="block">
-                            <input type="text" class="input" placeholder="Email" />
-                        </div>
-                        <div class="block">
-                            <input type="password" class="input" placeholder="Пароль" />
-                        </div>
-                        <div class="block">
-                            <button class="button block">Вход</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="modal-close is-large" id="modal-close" aria-label="close"></button>
-        </div>
-        <!-- NAVIGATE BAR -->
-        <nav class="navbar is-black block"
-             role="navigation"
-             aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/">
-                    <span class="logo">KINOMAN</span>
-                    <img src="https://cdn2.iconfinder.com/data/icons/ios-14-custom-application/62/application-04-256.png"
-                         width="35"
-                         height="48"
-                         alt="navbar-brand"/>
-                </a>
-                <a role="button"
-                   class="navbar-burger"
-                   aria-label="menu"
-                   aria-expanded="false"
-                   data-target="navbarMain">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-            <div id="navbarMain" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item">Кино</a>
-                    <a class="navbar-item">Что посмотреть?</a>
-                    <a class="navbar-item">Поиск</a>
-                </div>
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-primary" id="open-register" href="#register">
-                                <strong>Регистрация</strong>
-                            </a>
-                            <a class="button is-light" id="open-login" href="#login">Вход</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <!-- CONTENT -->
-        <div class="content block">
-            {% block content %}{% endblock %}
-        </div>
-        <!-- FOOTER -->
-        <footer class="footer has-background-black has-text-white">
-            <div class="content has-text-centered">
-                <p>
-                    <strong class="has-text-info">KINOMAN</strong> - это мой пет проект с
-                    использованием Джанго.
-                    <br />
-                    <a href="https://github.com/saalaus/kinoman" target="_blank">Исходный код здесь.</a
-                        >
-                    </p>
-                </div>
-            </footer>
-            <script src="{% static 'script.js' %}"></script>
-        </body>
-    </html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block page_title %} Kinoman {% endblock page_title %}</title>
+{#    <!-- fonts -->#}
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto+Slab:wght@700&display=swap"
+            rel="stylesheet"
+    />
+{#    <!-- Bulma -->#}
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+{#    <!-- icons -->#}
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css"
+    />
+{#    <!-- styles -->#}
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+</head>
+<body>
+{#<!-- MODAL -->#}
+{% if not user.is_authenticated %}
+    {% include 'modal_auth.html' %}
+{% endif %}
+{#<!-- NAVIGATE BAR -->#}
+{% include 'top_bar.html' %}
+{#<!-- CONTENT -->#}
+<div class="content block">{% block content %}{% endblock %}</div>
+{#<!-- FOOTER -->#}
+{% include 'footer.html' %}
+
+{#SCRIPTS#}
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>

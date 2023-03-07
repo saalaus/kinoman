@@ -1,0 +1,64 @@
+<nav
+        class="navbar is-black block"
+        role="navigation"
+        aria-label="main navigation"
+>
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <span class="logo">KINOMAN</span>
+            <img
+                    src="https://cdn2.iconfinder.com/data/icons/ios-14-custom-application/62/application-04-256.png"
+                    width="35"
+                    height="48"
+                    alt="navbar-brand"
+            />
+        </a>
+        <a
+                role="button"
+                class="navbar-burger"
+                aria-label="menu"
+                aria-expanded="false"
+                data-target="navbarMain"
+        >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="navbarMain" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item">Кино</a>
+            <a class="navbar-item">Что посмотреть?</a>
+            <a class="navbar-item">Поиск</a>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                {% if user.is_authenticated %}
+                    <div class="navbar-item has-dropdown is-hoverable is-left">
+                        <a class="navbar-link">
+                            Профиль
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                В профиль
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item" href="{% url 'logout' %}?redirect={{ request.path }}">
+                                Выйти
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="buttons">
+                        <a class="button is-primary" id="open-register" href="#register">
+                            <strong>Регистрация</strong>
+                        </a>
+                        <a class="button is-light" id="open-login" href="#login">Вход</a>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</nav>
